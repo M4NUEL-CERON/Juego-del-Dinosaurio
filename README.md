@@ -48,14 +48,19 @@ Luego abre [http://localhost:8080](http://localhost:8080) en tu navegador.
 
 ```
 Juego-del-Dinosaurio/
-├── index.html      # Estructura de la página
-├── style.css        # Estilos y animaciones
-├── main.js           # Lógica del juego (bucle, física, colisiones, puntaje)
-├── dino.png          # Sprite del dinosaurio
-├── cactus1.png        # Sprite de obstáculo (cactus pequeño)
-├── cactus2.png        # Sprite de obstáculo (cactus grande)
-├── nube.png           # Sprite de nube
-└── suelo.png           # Sprite del suelo
+├── index.html            # Estructura de la página
+├── css/
+│   └── style.css        # Estilos y animaciones
+├── js/
+│   └── main.js           # Lógica del juego (bucle, física, colisiones, puntaje)
+├── assets/
+│   └── img/
+│       ├── dino.png      # Sprite del dinosaurio
+│       ├── cactus1.png   # Sprite de obstáculo (cactus pequeño)
+│       ├── cactus2.png   # Sprite de obstáculo (cactus grande)
+│       ├── nube.png      # Sprite de nube
+│       └── suelo.png     # Sprite del suelo
+└── screenshot.png        # Captura usada en este README
 ```
 
 ## 🙋 Autor
