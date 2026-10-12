@@ -66,6 +66,8 @@ function Start() {
     textoScore = document.querySelector(".score");
     dino = document.querySelector(".dino");
     document.addEventListener("keydown", HandleKeyDown);
+    document.addEventListener("touchstart", HandleTouchStart);
+    document.addEventListener("mousedown", HandleTouchStart);
 }
 
 function Update() {
@@ -84,6 +86,20 @@ function Update() {
 
 function HandleKeyDown(ev){
     if(ev.keyCode == 32){
+        ev.preventDefault();
+        AccionPrincipal();
+    }
+}
+
+function HandleTouchStart(ev){
+    ev.preventDefault();
+    AccionPrincipal();
+}
+
+function AccionPrincipal(){
+    if(parado){
+        Reiniciar();
+    }else{
         Saltar();
     }
 }
@@ -94,6 +110,34 @@ function Saltar(){
         velY = impulso;
         dino.classList.remove("dino-corriendo");
     }
+}
+
+function Reiniciar(){
+    obstaculos.forEach(function(obstaculo){ obstaculo.parentNode.removeChild(obstaculo); });
+    nubes.forEach(function(nube){ nube.parentNode.removeChild(nube); });
+    obstaculos = [];
+    nubes = [];
+
+    velY = 0;
+    dinoPosY = sueloY;
+    sueloX = 0;
+    gameVel = 1;
+    score = 0;
+    parado = false;
+    saltando = false;
+
+    tiempoHastaObstaculo = 2;
+    tiempoHastaNube = 0.5;
+
+    textoScore.innerText = score;
+    suelo.style.animationPlayState = "running";
+    suelo.style.animationDuration = "3s";
+
+    contenedor.classList.remove("mediodia", "tarde", "noche");
+    dino.classList.remove("dino-estrellado");
+    dino.classList.add("dino-corriendo");
+
+    gameOver.style.display = "none";
 }
 
 function MoverDinosaurio() {
